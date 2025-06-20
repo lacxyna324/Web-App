@@ -1,0 +1,280 @@
+:root {
+    --primary-color: #344E41;
+    --secondary-color: #3A5A40;
+    --accent-color: #588157;
+    --background-color: #DAD7CD;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 135px;
+    height: 135px;
+    margin-left: 45px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: var(--primary-color);
+    color: white;
+    position: fixed;
+    height: 100vh;
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nav-bar button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-bar button:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+
+/* Main Content */
+.container {
+    margin-left: 280px;
+    padding: 2rem;
+    transition: margin 0.3s ease-in-out;
+    flex-grow: 1;
+}
+
+.section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.section:hover {
+    transform: translateY(-3px);
+}
+
+.modal {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* Flex Utility */
+.flex {
+    display: flex;
+}
+
+/* Table Styles */
+.table-container {
+    max-height: 300px; /* Makes table scrollable */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, 
+.data-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background-color: #f4f4f4;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* Skeleton Loader */
+.skeleton-loader {
+    height: 20px;
+    background: #eee;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    animation: loading 1.5s infinite;
+}
+
+.email-display{
+    text-align: center;
+    margin-top: 0.75rem;
+    background-color: #42c081;
+    border-radius: 6px;
+    display: block;
+}
+
+.recommendations-list {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 2rem; /* Space between items */
+    margin-top: 1.5rem; /* Space above the recommendations section */
+}
+
+.recommendation-item {
+    background-color: var(--card-bg); /* Background color for the card */
+    border: 1px solid #ccc; /* Light border around the card */
+    padding: 1.5rem; /* Padding inside the card */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: var(--shadow); /* Shadow effect for depth */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.recommendation-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.recommendation-item h3 {
+    font-size: 1.25rem; /* Font size for headings */
+    margin-bottom: 1rem; /* Space below the heading */
+    color: var(--primary-color); /* Color for headings */
+}
+
+.recommendation-item p {
+    margin: 0.25rem 0;
+    font-size: 1rem; 
+    color: var(--text-color); 
+}
+
+.recommendation-item strong {
+    color: var(--secondary-color); 
+}
+
+.recommendation-item p {
+    line-height: 1.5; 
+}
+
+.recommendation-item h3 span {
+    font-weight: bold; 
+}
+
+@media (max-width: 768px) {
+    .recommendations-list {
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: gray; /
+}
+
+.status-low {
+    background-color: red;
+}
+
+.status-moderate {
+    background-color: orange;
+}
+
+.status-high {
+    background-color: green;
+}
+
+#prediction-category {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+#prediction-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: 4.5px;
+}
+
+#soil-chart-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+#soil-chart-section canvas {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+}
